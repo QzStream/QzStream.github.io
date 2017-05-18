@@ -122,9 +122,9 @@
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '';
 
-          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-                <a href="' + src + '" itemprop="contentUrl" data-size="1080x1080" data-type="' + type + '" data-target="' + src + '">\
-                  <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/empty.png" itemprop="thumbnail" onload="lzld(this)">\
+          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="">\
+                <a href="'+src+'" rel="example_group" title="'+data.text[i]+'">\
+                  <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="https://raw.githubusercontent.com/qzmmdsl/qzmmdsl.github.io/master/assets/empty.jpg" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
                 <figcaption style="display:none" itemprop="caption description">' + data.text[i] + '</figcaption>\
             </figure>';
@@ -133,6 +133,19 @@
         <ul class="img-box-ul">' + liTmpl + '</ul>\
         </section>';
       }
+      $("a[rel=example_group]").fancybox({
+        helpers:  {//禁止后面body滚动
+    overlay: {
+        locked: false
+    }
+},
+        onPlayStart:function(){
+        
+          console.info("123123")
+      },
+      afterClose:function(){
+console.info("nihao2")
+      }});
       document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
@@ -578,13 +591,12 @@
 
     var Viewer = function() {
       function init() {
-        initPhotoSwipeFromDOM('.photos');
+        // initPhotoSwipeFromDOM('.photos');
       }
       return {
         init: init
       };
     }();
-
     module.exports = Viewer;
 
     /***/
