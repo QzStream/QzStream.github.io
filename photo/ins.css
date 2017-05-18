@@ -38,8 +38,11 @@
 	
 }
 
+.instagram figure{
+	margin:1px;
+}
 .instagram .album h1{
-	color: white
+	color: black
 }
 .instagram .album h1 em{
 	font-style: normal;
@@ -125,9 +128,9 @@
 	padding: 5px 8px 3px;
 }
 .photos-btn.active {
-	color: white;
+	color: black;
 	border: 1px solid #e5e5e5;
-	border-bottom: 5px solid #fff;
+	border-bottom: 5px solid black;
 }
 
 @media screen and (max-width:600px) {
